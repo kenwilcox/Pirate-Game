@@ -16,6 +16,7 @@
 @property (strong, nonatomic) KXCharacter *character;
 @property (strong, nonatomic) KXTile *currentTile;
 @property (nonatomic) CGPoint currentPosition;
+@property (strong, nonatomic) NSArray *gameTiles;
 
 #pragma mark - UI Elements
 @property (strong, nonatomic) IBOutlet UIImageView *gameImage;
@@ -23,6 +24,8 @@
 @property (strong, nonatomic) IBOutlet UILabel *attackerHealthLabel;
 @property (strong, nonatomic) IBOutlet UILabel *storyLabel;
 @property (strong, nonatomic) IBOutlet UIButton *actionButton;
+@property (strong, nonatomic) IBOutlet UILabel *cordLabel;
+
 @property (strong, nonatomic) IBOutlet UIButton *northButton;
 @property (strong, nonatomic) IBOutlet UIButton *eastButton;
 @property (strong, nonatomic) IBOutlet UIButton *westButton;

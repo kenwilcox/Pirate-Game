@@ -58,7 +58,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="f1p-Mb-BYR">
-                                <rect key="frame" x="20" y="447" width="31" height="30"/>
+                                <rect key="frame" x="109.5" y="447" width="31" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="East">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
@@ -68,7 +68,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Hyh-hF-2za">
-                                <rect key="frame" x="108" y="447" width="34" height="30"/>
+                                <rect key="frame" x="19" y="447" width="34" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="West">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
@@ -113,6 +113,13 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="cordLabel" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BFO-JP-6zs">
+                                <rect key="frame" x="117" y="383" width="84" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
@@ -121,6 +128,7 @@
                         <outlet property="armorName" destination="6Pz-c1-Di4" id="dH1-gM-Y7v"/>
                         <outlet property="attackerHealthLabel" destination="KEU-uY-JO8" id="hLC-oU-fjV"/>
                         <outlet property="attackerNameLabel" destination="E5R-Lh-bqr" id="90N-Ic-gZP"/>
+                        <outlet property="cordLabel" destination="BFO-JP-6zs" id="lzG-Fo-LJ2"/>
                         <outlet property="damageLabel" destination="zLr-qc-ecx" id="YqB-H7-lEV"/>
                         <outlet property="eastButton" destination="f1p-Mb-BYR" id="EZm-EF-3yQ"/>
                         <outlet property="gameImage" destination="3J3-U4-XEm" id="lvK-BV-LT2"/>

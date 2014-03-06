@@ -10,7 +10,7 @@
 
 @interface KXWeapon : NSObject
 
-@property (nonatomic) int damageBonus;
+@property (nonatomic) int damage;
 @property (nonatomic) int healthBonus;
 @property (nonatomic) NSString *name;
 

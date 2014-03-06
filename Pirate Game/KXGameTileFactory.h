@@ -1,5 +1,5 @@
 //
-//  KXArmor.h
+//  KXGameTileFactory.h
 //  Pirate Game
 //
 //  Created by Kenneth Wilcox on 3/5/14.
@@ -8,10 +8,9 @@
 
 #import <Foundation/Foundation.h>
 
-@interface KXArmor : NSObject
+@interface KXGameTileFactory : NSObject
 
-@property (nonatomic) int protect;
-@property (nonatomic) int healthBonus;
-@property (nonatomic) NSString *name;
+-(NSArray *)tiles;
+//-(NSArray *)tilesWithWidth:(int)width height:(int)height;
 
 @end

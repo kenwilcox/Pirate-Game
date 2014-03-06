@@ -7,6 +7,7 @@
 //
 
 #import "KXViewController.h"
+#import "KXGameTileFactory.h"
 
 @interface KXViewController ()
 
@@ -21,7 +22,11 @@
   self.currentPosition = CGPointMake(0, 0);
 	
   // Do any additional setup after loading the view, typically from a nib.
-  [self testView];
+  KXGameTileFactory *factory = [[KXGameTileFactory alloc] init];
+  self.gameTiles = [factory tiles];
+  [self findAndSetCurrentTile];
+  [self setupCharacter];
+  [self updateGameUI];
 }
 
 - (void)didReceiveMemoryWarning
@@ -30,7 +35,16 @@
   // Dispose of any resources that can be recreated.
 }
 
--(void)testView
+-(void)findAndSetCurrentTile
+{
+  NSArray *row = [self.gameTiles objectAtIndex:self.currentPosition.x];
+//  NSLog(@"%@", row);
+  KXTile *tile = [row objectAtIndex:self.currentPosition.y];
+//  NSLog(@"%@", tile.name);
+  self.currentTile = tile;
+}
+
+-(void)setupCharacter
 {
   self.character = [[KXCharacter alloc] init];
   self.character.weapon = [[KXWeapon alloc] init];
@@ -38,19 +52,17 @@
   self.character.health = 20;
   self.character.damage = 5;
   self.character.weapon.name = @"Fists";
-  self.character.weapon.damageBonus = 1;
+  self.character.weapon.damage = 1;
   self.character.weapon.healthBonus = 0;
   self.character.armor.name = @"Clothes";
   self.character.armor.healthBonus = 0;
-  self.character.armor.protectBonus = 0;
-
-  self.currentTile = [[KXTile alloc] init];
-  
-  [self UpdateGameUI];
+  self.character.armor.protect = 0;
 }
 
--(void)UpdateGameUI
+-(void)updateGameUI
 {
+  self.cordLabel.text = self.currentTile.name;
+  
 #pragma mark - Update Attacker Info
   if (self.currentTile.attacker != nil) {
     self.attackerNameLabel.text = [NSString stringWithFormat:@"Attacker: %@", self.currentTile.attacker.name];
@@ -70,19 +82,43 @@
   self.gameImage.image = self.currentTile.image;
   
 #pragma mark - Update Player Info
-  self.healthLabel.text = [NSString stringWithFormat:@"HP: %i", self.character.health];
+  int healthBonus = self.character.weapon.healthBonus + self.character.armor.healthBonus;
+  self.healthLabel.text = [NSString stringWithFormat:@"HP: %i (+%i)", self.character.health, healthBonus];
   self.damageLabel.text = [NSString stringWithFormat:@"ATK: %i", self.character.damage];
-  self.weaponName.text = [NSString stringWithFormat:@"W: %@ (%i/%i)", self.character.weapon.name, self.character.weapon.damageBonus, self.character.weapon.healthBonus];
-  self.armorName.text = [NSString stringWithFormat:@"A: %@ (%i/%i)", self.character.armor.name, self.character.armor.protectBonus, self.character.armor.healthBonus];
+  self.weaponName.text = [NSString stringWithFormat:@"W: %@ (%i)", self.character.weapon.name, self.character.weapon.damage];
+  self.armorName.text = [NSString stringWithFormat:@"A: %@ (%i)", self.character.armor.name, self.character.armor.protect];
   
 #pragma mark - Update Buttons
   if (self.currentTile.action != nil)
+  {
     [self.actionButton setTitle:self.currentTile.action forState:UIControlStateNormal];
+    self.actionButton.enabled = YES;
+  }
   else
     self.actionButton.enabled = NO;
   
+  self.northButton.enabled = self.currentTile.canGoNorth;
+  self.eastButton.enabled = self.currentTile.canGoEast;
+  self.southButton.enabled = self.currentTile.canGoSouth;
+  self.westButton.enabled = self.currentTile.canGoWest;
+  
   if (self.character.health <= 0)
     [self gameOver:@"You died trying"];
+}
+
+-(void)performAction
+{
+  if (self.currentTile.weapon != nil) {
+    self.character.weapon = self.currentTile.weapon;
+    self.currentTile.action = nil;
+  }
+  
+  if (self.currentTile.armor != nil) {
+    self.character.armor = self.currentTile.armor;
+    self.currentTile.action = nil;
+  }
+  
+  [self updateGameUI];
 }
 
 -(void)gameOver:(NSString *)message
@@ -91,32 +127,42 @@
   [view show];
 }
 
--(void)allowDirectionalNorthButton:(BOOL)north southButton:(BOOL)south eastButton:(BOOL)east westButton:(BOOL)west
-{
-  self.northButton.enabled = north;
-  self.southButton.enabled = south;
-  self.eastButton.enabled = east;
-  self.westButton.enabled = west;
-}
-
 - (IBAction)actionButtonTouchUpInside:(UIButton *)sender
 {
-//  [self setAttackerName: nil];
-//  [self setAttackerHealth: -1];
-//  [self setStory: nil];
-//  [self allowDirectionalNorthButton:YES southButton:NO eastButton:NO westButton:YES];
-//  [self setPlayerHealth:0];
+  [self performAction];
 }
 
-- (IBAction)northButtonTouchUpInside:(UIButton *)sender {
+// Since the tiles "know" where they are, we shouldn't be able
+// to be out of bounds
+- (IBAction)northButtonTouchUpInside:(UIButton *)sender
+{
+  // we moved up one
+  self.currentPosition = CGPointMake(self.currentPosition.x + 1, self.currentPosition.y);
+  [self findAndSetCurrentTile];
+  [self updateGameUI];
 }
 
-- (IBAction)eastButtonTouchUpInside:(UIButton *)sender {
+- (IBAction)eastButtonTouchUpInside:(UIButton *)sender
+{
+  // we moved right one
+  self.currentPosition = CGPointMake(self.currentPosition.x, self.currentPosition.y + 1);
+  [self findAndSetCurrentTile];
+  [self updateGameUI];
 }
 
-- (IBAction)westButtonTouchUpInside:(UIButton *)sender {
+- (IBAction)westButtonTouchUpInside:(UIButton *)sender
+{
+  // we moved left one
+  self.currentPosition = CGPointMake(self.currentPosition.x, self.currentPosition.y - 1);
+  [self findAndSetCurrentTile];
+  [self updateGameUI];
 }
 
-- (IBAction)southButtonTouchUpInside:(UIButton *)sender {
+- (IBAction)southButtonTouchUpInside:(UIButton *)sender
+{
+  // we moved down one
+  self.currentPosition = CGPointMake(self.currentPosition.x - 1, self.currentPosition.y);
+  [self findAndSetCurrentTile];
+  [self updateGameUI];
 }
 @end
