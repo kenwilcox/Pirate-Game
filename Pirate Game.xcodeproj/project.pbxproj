@@ -21,6 +21,18 @@
 		BE28378018C83FC2008B09EE /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BE28376218C83FC2008B09EE /* UIKit.framework */; };
 		BE28378818C83FC2008B09EE /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = BE28378618C83FC2008B09EE /* InfoPlist.strings */; };
 		BE28378A18C83FC2008B09EE /* Pirate_GameTests.m in Sources */ = {isa = PBXBuildFile; fileRef = BE28378918C83FC2008B09EE /* Pirate_GameTests.m */; };
+		BE96C5CB18C8409C00BE2DF3 /* KXTile.m in Sources */ = {isa = PBXBuildFile; fileRef = BE96C5CA18C8409C00BE2DF3 /* KXTile.m */; };
+		BE96C5D418C840D200BE2DF3 /* KXArmor.m in Sources */ = {isa = PBXBuildFile; fileRef = BE96C5CD18C840D200BE2DF3 /* KXArmor.m */; };
+		BE96C5D518C840D200BE2DF3 /* KXAttacker.m in Sources */ = {isa = PBXBuildFile; fileRef = BE96C5CF18C840D200BE2DF3 /* KXAttacker.m */; };
+		BE96C5D618C840D200BE2DF3 /* KXCharacter.m in Sources */ = {isa = PBXBuildFile; fileRef = BE96C5D118C840D200BE2DF3 /* KXCharacter.m */; };
+		BE96C5D718C840D200BE2DF3 /* KXWeapon.m in Sources */ = {isa = PBXBuildFile; fileRef = BE96C5D318C840D200BE2DF3 /* KXWeapon.m */; };
+		BE96C5DF18C8422300BE2DF3 /* PirateAttack.jpg in Resources */ = {isa = PBXBuildFile; fileRef = BE96C5D818C8422300BE2DF3 /* PirateAttack.jpg */; };
+		BE96C5E018C8422300BE2DF3 /* PirateBlacksmith.jpeg in Resources */ = {isa = PBXBuildFile; fileRef = BE96C5D918C8422300BE2DF3 /* PirateBlacksmith.jpeg */; };
+		BE96C5E118C8422300BE2DF3 /* PirateBoss.jpeg in Resources */ = {isa = PBXBuildFile; fileRef = BE96C5DA18C8422300BE2DF3 /* PirateBoss.jpeg */; };
+		BE96C5E218C8422300BE2DF3 /* PirateStart.jpg in Resources */ = {isa = PBXBuildFile; fileRef = BE96C5DB18C8422300BE2DF3 /* PirateStart.jpg */; };
+		BE96C5E318C8422300BE2DF3 /* PirateTreasure.jpeg in Resources */ = {isa = PBXBuildFile; fileRef = BE96C5DC18C8422300BE2DF3 /* PirateTreasure.jpeg */; };
+		BE96C5E418C8422300BE2DF3 /* PirateTreasurer2.jpeg in Resources */ = {isa = PBXBuildFile; fileRef = BE96C5DD18C8422300BE2DF3 /* PirateTreasurer2.jpeg */; };
+		BE96C5E518C8422300BE2DF3 /* PirateWeapons.jpeg in Resources */ = {isa = PBXBuildFile; fileRef = BE96C5DE18C8422300BE2DF3 /* PirateWeapons.jpeg */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -53,6 +65,23 @@
 		BE28378518C83FC2008B09EE /* Pirate GameTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "Pirate GameTests-Info.plist"; sourceTree = "<group>"; };
 		BE28378718C83FC2008B09EE /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		BE28378918C83FC2008B09EE /* Pirate_GameTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Pirate_GameTests.m; sourceTree = "<group>"; };
+		BE96C5C918C8409C00BE2DF3 /* KXTile.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KXTile.h; sourceTree = "<group>"; };
+		BE96C5CA18C8409C00BE2DF3 /* KXTile.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KXTile.m; sourceTree = "<group>"; };
+		BE96C5CC18C840D200BE2DF3 /* KXArmor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KXArmor.h; sourceTree = "<group>"; };
+		BE96C5CD18C840D200BE2DF3 /* KXArmor.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KXArmor.m; sourceTree = "<group>"; };
+		BE96C5CE18C840D200BE2DF3 /* KXAttacker.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KXAttacker.h; sourceTree = "<group>"; };
+		BE96C5CF18C840D200BE2DF3 /* KXAttacker.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KXAttacker.m; sourceTree = "<group>"; };
+		BE96C5D018C840D200BE2DF3 /* KXCharacter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KXCharacter.h; sourceTree = "<group>"; };
+		BE96C5D118C840D200BE2DF3 /* KXCharacter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KXCharacter.m; sourceTree = "<group>"; };
+		BE96C5D218C840D200BE2DF3 /* KXWeapon.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KXWeapon.h; sourceTree = "<group>"; };
+		BE96C5D318C840D200BE2DF3 /* KXWeapon.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KXWeapon.m; sourceTree = "<group>"; };
+		BE96C5D818C8422300BE2DF3 /* PirateAttack.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = PirateAttack.jpg; sourceTree = "<group>"; };
+		BE96C5D918C8422300BE2DF3 /* PirateBlacksmith.jpeg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = PirateBlacksmith.jpeg; sourceTree = "<group>"; };
+		BE96C5DA18C8422300BE2DF3 /* PirateBoss.jpeg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = PirateBoss.jpeg; sourceTree = "<group>"; };
+		BE96C5DB18C8422300BE2DF3 /* PirateStart.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = PirateStart.jpg; sourceTree = "<group>"; };
+		BE96C5DC18C8422300BE2DF3 /* PirateTreasure.jpeg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = PirateTreasure.jpeg; sourceTree = "<group>"; };
+		BE96C5DD18C8422300BE2DF3 /* PirateTreasurer2.jpeg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = PirateTreasurer2.jpeg; sourceTree = "<group>"; };
+		BE96C5DE18C8422300BE2DF3 /* PirateWeapons.jpeg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = PirateWeapons.jpeg; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -117,6 +146,16 @@
 				BE28377018C83FC2008B09EE /* Main.storyboard */,
 				BE28377318C83FC2008B09EE /* KXViewController.h */,
 				BE28377418C83FC2008B09EE /* KXViewController.m */,
+				BE96C5C918C8409C00BE2DF3 /* KXTile.h */,
+				BE96C5CA18C8409C00BE2DF3 /* KXTile.m */,
+				BE96C5CC18C840D200BE2DF3 /* KXArmor.h */,
+				BE96C5CD18C840D200BE2DF3 /* KXArmor.m */,
+				BE96C5CE18C840D200BE2DF3 /* KXAttacker.h */,
+				BE96C5CF18C840D200BE2DF3 /* KXAttacker.m */,
+				BE96C5D018C840D200BE2DF3 /* KXCharacter.h */,
+				BE96C5D118C840D200BE2DF3 /* KXCharacter.m */,
+				BE96C5D218C840D200BE2DF3 /* KXWeapon.h */,
+				BE96C5D318C840D200BE2DF3 /* KXWeapon.m */,
 				BE28377618C83FC2008B09EE /* Images.xcassets */,
 				BE28376518C83FC2008B09EE /* Supporting Files */,
 			);
@@ -126,6 +165,13 @@
 		BE28376518C83FC2008B09EE /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				BE96C5D818C8422300BE2DF3 /* PirateAttack.jpg */,
+				BE96C5D918C8422300BE2DF3 /* PirateBlacksmith.jpeg */,
+				BE96C5DA18C8422300BE2DF3 /* PirateBoss.jpeg */,
+				BE96C5DB18C8422300BE2DF3 /* PirateStart.jpg */,
+				BE96C5DC18C8422300BE2DF3 /* PirateTreasure.jpeg */,
+				BE96C5DD18C8422300BE2DF3 /* PirateTreasurer2.jpeg */,
+				BE96C5DE18C8422300BE2DF3 /* PirateWeapons.jpeg */,
 				BE28376618C83FC2008B09EE /* Pirate Game-Info.plist */,
 				BE28376718C83FC2008B09EE /* InfoPlist.strings */,
 				BE28376A18C83FC2008B09EE /* main.m */,
@@ -229,9 +275,16 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				BE96C5DF18C8422300BE2DF3 /* PirateAttack.jpg in Resources */,
+				BE96C5E218C8422300BE2DF3 /* PirateStart.jpg in Resources */,
 				BE28377718C83FC2008B09EE /* Images.xcassets in Resources */,
+				BE96C5E418C8422300BE2DF3 /* PirateTreasurer2.jpeg in Resources */,
 				BE28376918C83FC2008B09EE /* InfoPlist.strings in Resources */,
 				BE28377218C83FC2008B09EE /* Main.storyboard in Resources */,
+				BE96C5E518C8422300BE2DF3 /* PirateWeapons.jpeg in Resources */,
+				BE96C5E018C8422300BE2DF3 /* PirateBlacksmith.jpeg in Resources */,
+				BE96C5E118C8422300BE2DF3 /* PirateBoss.jpeg in Resources */,
+				BE96C5E318C8422300BE2DF3 /* PirateTreasure.jpeg in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -250,8 +303,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				BE96C5CB18C8409C00BE2DF3 /* KXTile.m in Sources */,
 				BE28377518C83FC2008B09EE /* KXViewController.m in Sources */,
+				BE96C5D718C840D200BE2DF3 /* KXWeapon.m in Sources */,
+				BE96C5D418C840D200BE2DF3 /* KXArmor.m in Sources */,
+				BE96C5D518C840D200BE2DF3 /* KXAttacker.m in Sources */,
 				BE28376B18C83FC2008B09EE /* main.m in Sources */,
+				BE96C5D618C840D200BE2DF3 /* KXCharacter.m in Sources */,
 				BE28376F18C83FC2008B09EE /* KXAppDelegate.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -461,6 +519,7 @@
 				BE28378F18C83FC2008B09EE /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		BE28379018C83FC2008B09EE /* Build configuration list for PBXNativeTarget "Pirate GameTests" */ = {
 			isa = XCConfigurationList;
@@ -469,6 +528,7 @@
 				BE28379218C83FC2008B09EE /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
