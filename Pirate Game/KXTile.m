@@ -38,4 +38,11 @@
     self.action = @"Equip armor";
 }
 
+-(void)setAttacker:(KXAttacker *)attacker
+{
+  _attacker = attacker;
+  if (attacker != nil)
+    self.action = @"Attack!";
+}
+
 @end

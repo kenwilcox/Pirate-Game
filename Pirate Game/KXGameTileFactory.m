@@ -7,27 +7,59 @@
 //
 
 #import "KXGameTileFactory.h"
+#import "KXWeaponFactory.h"
+#import "KXArmorFactory.h"
+#import "KXAttackerFactory.h"
 #import "KXTile.h"
 
 @implementation KXGameTileFactory
 
 /*
- 3,0 | 3,1 | 3,2
- 2,0 | 2,1 | 2,2
- 1,0 | 1,1 | 1,2
- 0,0 | 0,1 | 0,2
+ +---+---+---+
+ |       |   |
+ | S   L | X |
+ |       |   |
+ +   +   +   +
+ |   |   |   |
+ |   | B | C |
+ |   |   |   |
+ +   +---+   +
+ |           |
+ | q         |
+ |           |
+ +   +   +   +
+ |           |
+ | ^       r |
+ |           |
+ +---+---+---+
+ 
+ Legend:
+ ^ = Starting point
+ r = Rusty Helmet
+ 
+ q = Hear rumor
+ 
+ B = Black Bart
+ C = cliffs
+ 
+ S = Slimy Smee
+ L = Claymore
+ X = Fall to your death
+ 
+ Blank Squares have nothing important
+*/
+
+/*
+4: 3,0 | 3,1 | 3,2
+3: 2,0 | 2,1 | 2,2
+2: 1,0 | 1,1 | 1,2
+1: 0,0 | 0,1 | 0,2
 */
 
 -(NSArray *)tiles
 {
-#pragma mark - Create Armor
-  KXArmor *rustyHelmet = [[KXArmor alloc] init];
-  rustyHelmet.name = @"Rusty Helmet";
-  rustyHelmet.protect = 5;
-  rustyHelmet.healthBonus = 0;
-  
 #pragma mark - Create Tiles
-#pragma mark Fourth Row
+  // Completed
   KXTile *tile00 = [[KXTile alloc] init];
   tile00.story = @"You find yourself shipwrecked. The last thing you remember was being attacked by the dreaded pirate Black Bart. You are alone.";
   tile00.action = nil;
@@ -61,13 +93,13 @@
   tile02.name = @"0,2";
   tile02.attacker = nil;
   tile02.weapon = nil;
-  tile02.armor = rustyHelmet;
+  tile02.armor = [KXArmorFactory rustyHelmet];
   tile02.canGoNorth = YES;
   tile02.canGoEast = NO;
   tile02.canGoSouth = NO;
   tile02.canGoWest = YES;
   
-#pragma mark Third Row
+  // Row 3
   KXTile *tile10 = [[KXTile alloc] init];
   tile10.story = @"You heard rumors of a once magical sword. Maybe you can find it!";
   tile10.action = nil;
@@ -82,11 +114,11 @@
   tile10.canGoWest = NO;
 
   KXTile *tile11 = [[KXTile alloc] init];
-  tile11.story = @"You heard rumors of a once magical sword. Maybe you can find it!";
+  tile11.story = @"You run into Slimy Smee, who is not happy to see you.";
   tile11.action = nil;
   tile11.image = [UIImage imageNamed:@"PirateBoss.jpg"];
   tile11.name = @"1,1";
-  tile11.attacker = nil;
+  tile11.attacker = [KXAttackerFactory slimySmee];
   tile11.weapon = nil;
   tile11.armor = nil;
   tile11.canGoNorth = NO;
@@ -106,6 +138,10 @@
   tile12.canGoEast = NO;
   tile12.canGoSouth = YES;
   tile12.canGoWest = YES;
+  
+  // Row 2
+  
+  // Row 1
 
   NSArray *row3 = [[NSArray alloc] initWithObjects:tile10, tile11, tile12, nil];
   NSArray *row4 = [[NSArray alloc] initWithObjects:tile00, tile01, tile02, nil];

@@ -34,6 +34,9 @@
 		BE96C5E418C8422300BE2DF3 /* PirateTreasure2.jpg in Resources */ = {isa = PBXBuildFile; fileRef = BE96C5DD18C8422300BE2DF3 /* PirateTreasure2.jpg */; };
 		BE96C5E518C8422300BE2DF3 /* PirateWeapons.jpg in Resources */ = {isa = PBXBuildFile; fileRef = BE96C5DE18C8422300BE2DF3 /* PirateWeapons.jpg */; };
 		BE96C5E818C8466B00BE2DF3 /* KXGameTileFactory.m in Sources */ = {isa = PBXBuildFile; fileRef = BE96C5E718C8466B00BE2DF3 /* KXGameTileFactory.m */; };
+		BEAE669718C8F81600903950 /* KXWeaponFactory.m in Sources */ = {isa = PBXBuildFile; fileRef = BEAE669618C8F81600903950 /* KXWeaponFactory.m */; };
+		BEAE669A18C8F9AF00903950 /* KXArmorFactory.m in Sources */ = {isa = PBXBuildFile; fileRef = BEAE669918C8F9AF00903950 /* KXArmorFactory.m */; };
+		BEAE669D18C9007A00903950 /* KXAttackerFactory.m in Sources */ = {isa = PBXBuildFile; fileRef = BEAE669C18C9007A00903950 /* KXAttackerFactory.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -85,6 +88,12 @@
 		BE96C5DE18C8422300BE2DF3 /* PirateWeapons.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = PirateWeapons.jpg; sourceTree = "<group>"; };
 		BE96C5E618C8466B00BE2DF3 /* KXGameTileFactory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KXGameTileFactory.h; sourceTree = "<group>"; };
 		BE96C5E718C8466B00BE2DF3 /* KXGameTileFactory.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KXGameTileFactory.m; sourceTree = "<group>"; };
+		BEAE669518C8F81600903950 /* KXWeaponFactory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KXWeaponFactory.h; sourceTree = "<group>"; };
+		BEAE669618C8F81600903950 /* KXWeaponFactory.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KXWeaponFactory.m; sourceTree = "<group>"; };
+		BEAE669818C8F9AF00903950 /* KXArmorFactory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KXArmorFactory.h; sourceTree = "<group>"; };
+		BEAE669918C8F9AF00903950 /* KXArmorFactory.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KXArmorFactory.m; sourceTree = "<group>"; };
+		BEAE669B18C9007A00903950 /* KXAttackerFactory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KXAttackerFactory.h; sourceTree = "<group>"; };
+		BEAE669C18C9007A00903950 /* KXAttackerFactory.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KXAttackerFactory.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -151,6 +160,12 @@
 				BE28377418C83FC2008B09EE /* KXViewController.m */,
 				BE96C5E618C8466B00BE2DF3 /* KXGameTileFactory.h */,
 				BE96C5E718C8466B00BE2DF3 /* KXGameTileFactory.m */,
+				BEAE669B18C9007A00903950 /* KXAttackerFactory.h */,
+				BEAE669C18C9007A00903950 /* KXAttackerFactory.m */,
+				BEAE669518C8F81600903950 /* KXWeaponFactory.h */,
+				BEAE669618C8F81600903950 /* KXWeaponFactory.m */,
+				BEAE669818C8F9AF00903950 /* KXArmorFactory.h */,
+				BEAE669918C8F9AF00903950 /* KXArmorFactory.m */,
 				BE96C5C918C8409C00BE2DF3 /* KXTile.h */,
 				BE96C5CA18C8409C00BE2DF3 /* KXTile.m */,
 				BE96C5CC18C840D200BE2DF3 /* KXArmor.h */,
@@ -308,6 +323,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				BEAE669D18C9007A00903950 /* KXAttackerFactory.m in Sources */,
 				BE96C5CB18C8409C00BE2DF3 /* KXTile.m in Sources */,
 				BE28377518C83FC2008B09EE /* KXViewController.m in Sources */,
 				BE96C5D718C840D200BE2DF3 /* KXWeapon.m in Sources */,
@@ -316,7 +332,9 @@
 				BE28376B18C83FC2008B09EE /* main.m in Sources */,
 				BE96C5D618C840D200BE2DF3 /* KXCharacter.m in Sources */,
 				BE28376F18C83FC2008B09EE /* KXAppDelegate.m in Sources */,
+				BEAE669A18C8F9AF00903950 /* KXArmorFactory.m in Sources */,
 				BE96C5E818C8466B00BE2DF3 /* KXGameTileFactory.m in Sources */,
+				BEAE669718C8F81600903950 /* KXWeaponFactory.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
