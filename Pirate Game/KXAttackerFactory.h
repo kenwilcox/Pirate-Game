@@ -13,5 +13,6 @@
 
 +(KXAttacker *)slimySmee;
 +(KXAttacker *)blackBart;
++(KXAttacker *)shark;
 
 @end

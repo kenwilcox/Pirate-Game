@@ -28,4 +28,13 @@
   return attacker;
 }
 
++(KXAttacker *)shark
+{
+  KXAttacker *attacker = [[KXAttacker alloc] init];
+  attacker.name = @"Sharks";
+  attacker.health = 200;
+  attacker.damage = 200;
+  return attacker;
+}
+
 @end

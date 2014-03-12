@@ -40,9 +40,7 @@
 -(void)findAndSetCurrentTile
 {
   NSArray *row = [self.gameTiles objectAtIndex:self.currentPosition.x];
-//  NSLog(@"%@", row);
   KXTile *tile = [row objectAtIndex:self.currentPosition.y];
-//  NSLog(@"%@", tile.name);
   self.currentTile = tile;
   [self updateGameUI];
 }
@@ -50,29 +48,22 @@
 -(void)setupCharacter
 {
   self.character = [[KXCharacter alloc] init];
-  self.character.weapon = [KXWeaponFactory fist]; //[[KXWeapon alloc] init];
-  self.character.armor = [KXArmorFactory clothes]; //[[KXArmor alloc] init];
+  self.character.weapon = [KXWeaponFactory fist];
+  self.character.armor = [KXArmorFactory clothes];
   self.character.health = 20;
   self.character.damage = 5;
-//  self.character.weapon.name = @"Fists";
-//  self.character.weapon.damage = 1;
-//  self.character.weapon.healthBonus = 0;
-//  self.character.armor.name = @"Clothes";
-//  self.character.armor.healthBonus = 0;
-//  self.character.armor.protect = 0;
 }
 
 -(void)updateGameUI
 {
+  // just to aid in the debugging of the map
   self.cordLabel.text = self.currentTile.name;
   
 #pragma mark - Update Attacker Info
-  if (self.currentTile.attacker.health > 0) {
+  if (self.currentTile.attacker != nil) {
     self.attackerNameLabel.text = [NSString stringWithFormat:@"Attacker: %@", self.currentTile.attacker.name];
     if (self.currentTile.attacker.health > 0) {
       self.attackerHealthLabel.text = [NSString stringWithFormat:@"HP: %i", self.currentTile.attacker.health];
-    } else if (self.currentTile.attacker.health == -1){
-      self.attackerHealthLabel.text = @"";
     } else {
       self.attackerHealthLabel.text = @"Dead";
       self.currentTile.story = [NSString stringWithFormat:@"Here lay the remains of %@", self.currentTile.attacker.name];
@@ -131,23 +122,8 @@
   }
   
   if (self.currentTile.attacker != nil) {
-    if (self.currentTile.attacker.health <= 0)
+    if (self.currentTile.attacker.health > 0)
     {
-      //[self findAndSetCurrentTile];
-//      self.currentTile.story = [NSString stringWithFormat:@"Here lay the remains of %@", self.currentTile.attacker.name];
-//      self.currentTile.action = nil;
-      //self.currentTile.attacker = nil;
-    }
-    else
-    {
-      // Can't update currentTile - it overwrites the default value
-      //    self.currentTile.canGoNorth = NO;
-      //    self.currentTile.canGoEast = NO;
-      //    self.currentTile.canGoSouth = NO;
-      //    self.currentTile.canGoWest = NO;
-      //    self.currentTile.story = @"You were hit with 2 points of damage, but inflicted 6 points of damage";
-      //    self.currentTile.attacker.health -= 6;
-      //    self.character.health -= 2;
       [self calculateBattleResults];
     }
   }
@@ -185,10 +161,11 @@
   int coinToss = arc4random() % 2;
   switch (coinToss) {
     case 0:
-      NSLog(@"Attacker Goes First");
+      //NSLog(@"Attacker Goes First");
       self.character.health -= attackerDamage;
       if (self.character.health <= 0) {
         [self gameOver:@"You died trying"];
+        self.currentTile.action = nil;
         playerMessage = @"You died.";
       }
       else
@@ -197,28 +174,39 @@
       break;
       
     case 1:
-      NSLog(@"Player Goes First");
+      //NSLog(@"Player Goes First");
       self.currentTile.attacker.health -= playerDamage;
       if (self.currentTile.attacker.health > 0) {
         self.character.health -= attackerDamage;
-        if (self.character.health <= 0)
+        if (self.character.health <= 0){
+          self.currentTile.action = nil;
           [self gameOver:@"You died trying"];
+          playerMessage = @"You died.";
+        }
       } else {
         attackerMessage = [NSString stringWithFormat:@"%@ died.", self.currentTile.attacker.name];
+        self.currentTile.action = nil;
+        [self showMessage:attackerMessage];        
       }
       self.currentTile.story = [NSString stringWithFormat:@"%@ %@", playerMessage, attackerMessage];
       break;
-    
-//    default:
-//      NSLog(@"%i", coinToss);
-//      break;
   }
+}
+
+-(void)showMessage:(NSString *)message
+{
+  [self showMessage:message title: nil];
+}
+
+-(void)showMessage:(NSString *)message title:(NSString *)title
+{
+  UIAlertView *view = [[UIAlertView alloc] initWithTitle:title message:message delegate:nil cancelButtonTitle:@"OK" otherButtonTitles: nil];
+  [view show];
 }
 
 -(void)gameOver:(NSString *)message
 {
-  UIAlertView *view = [[UIAlertView alloc] initWithTitle:@"Game Over" message:message delegate:nil cancelButtonTitle:@"OK" otherButtonTitles: nil];
-  [view show];
+  [self showMessage:message title:@"Game Over"];
 }
 
 - (IBAction)actionButtonTouchUpInside:(UIButton *)sender
